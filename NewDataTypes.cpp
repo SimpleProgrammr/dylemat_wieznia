@@ -4,26 +4,58 @@
 
 #include "NewDataTypes.h"
 
-struct NewDataTypes::Weights{
-    int width;
-    int height;
-    double (*weight)[];
-};
+#include "Generators.h"
 
-struct NewDataTypes::NeuralNetwork {
-    int input_nodes_count;
-    int *input_nodes;
+NewDataTypes::Weights::Weights(int w , int h) : width(w), height(h) {
+    this->weights = new Array2D<double>(width, height);
+}
 
-    Weights *in2hidden_weights;
+double NewDataTypes::Weights::get_weight(const int w, const int h) const {
+    return this->weights->get(w, h);
+}
 
-    int hidden_nodes_count;
-    int *hidden_nodes;
+void NewDataTypes::Weights::set_weight(const int w, const int h, const double val) const {
+    this->weights->set(w, h, val);
+}
 
-    Weights *hidden2out_weights;
+void NewDataTypes::Weights::set_weights(const int w, const int h, Array2D<double> *vals) {
+    this->weights = vals;
+}
 
-    bool output;
-};
+void NewDataTypes::Weights::set_random_weights(const double min, const double max) const {
+    auto gen = Generators();
+    gen.fill_array(this->width, this->height, min, max, this->weights);
+}
 
-struct NewDataTypes::Msg2Judge {
-    
-};
+NewDataTypes::NeuralNetwork::NeuralNetwork(const int input_nodes_count, const int hidden_nodes_count) :
+    in2hidden_weights(nullptr),
+    hidden2out_weights(nullptr), output(false) {
+    this->input_nodes_count = input_nodes_count;
+    this->input_nodes = vector<int>(this->input_nodes_count);
+
+
+    this->hidden_nodes_count = hidden_nodes_count;
+    this->hidden_nodes = vector<int>(this->hidden_nodes_count);
+
+}
+
+NewDataTypes::NeuralNetwork::~NeuralNetwork() {
+    delete this->in2hidden_weights;
+    delete this->hidden2out_weights;
+}
+
+void NewDataTypes::NeuralNetwork::set_input_weights(Weights *weights) {
+    delete this->in2hidden_weights;
+
+    in2hidden_weights = weights;
+}
+
+void NewDataTypes::NeuralNetwork::set_output_weights(Weights *weights) {
+    delete this->hidden2out_weights;
+
+    hidden2out_weights = weights;
+}
+
+
+
+

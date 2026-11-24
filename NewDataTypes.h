@@ -1,4 +1,8 @@
 #pragma once
+#include <memory>
+
+#include "Array2D.h"
+
 
 class NewDataTypes {
     public:
@@ -13,28 +17,39 @@ class NewDataTypes {
         Weights(int w, int h);
 
         [[nodiscard]] double get_weight(int w, int h) const;
-        void set_weight(int w, int h, double val);
+        void set_weight(int w, int h, double val) const;
         void set_weights(int w, int h, Array2D<double> *vals);
         void set_random_weights(double min, double max) const;
 
     };
 
-        T& operator[](int i) {
-            return data.get()[i];
-        }
+    struct NeuralNetwork{
+        int input_nodes_count;
+        vector<int> input_nodes;
 
-        const T& operator[](int i) const {
-            return data.get()[i];
-        }
+        Weights *in2hidden_weights;
 
-        [[nodiscard]] T get(const int w, const int h) {
-            return data.get()[h * width + w];
-        }
+        int hidden_nodes_count;
+        vector<int> hidden_nodes;
 
-        void set(const int w, const int h, const T val) {
-            data.get()[h * width + w] = val;
-        }
+        Weights *hidden2out_weights;
 
-    struct Msg2Judge;
+        bool output;
+
+        NeuralNetwork(int input_nodes_count, int hidden_nodes_count);
+        ~NeuralNetwork();
+
+        void set_input_weights(Weights *weights);
+        void set_output_weights(Weights *weights);
+    };
+
+    struct Msg2Judge {
+        long id;
+        NeuralNetwork *NN1;
+        NeuralNetwork *NN2;
+        int rounds_limit;
+
+        Msg2Judge();
+    };
 };
 

@@ -4,7 +4,7 @@ project(dylemat_wieznia)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(dylemat_wieznia GameMaster.cpp
-        Generators.cpp
         Generators.h
         NewDataTypes.cpp
-        NewDataTypes.h)
+        NewDataTypes.h
+        Array2D.h)

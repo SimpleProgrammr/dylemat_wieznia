@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include "Array2D.h"
+#include "Generators.h"
+
 using namespace std;
 
 int PRISONERS_LIMIT;
@@ -60,8 +63,7 @@ void setup_interface() {
     if (cin >> response && !response.empty()) {
         if (static_cast<char>(tolower(response[0])) == 'y') {
             //TODO: load weights from file
-        }
-        else if (static_cast<char>(tolower(response[0])) == 'n') {
+        } else if (static_cast<char>(tolower(response[0])) == 'n') {
             //TODO: generate weights
         }
         else
