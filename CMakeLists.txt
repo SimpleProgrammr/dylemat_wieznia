@@ -7,4 +7,7 @@ add_executable(dylemat_wieznia GameMaster.cpp
         Generators.h
         NewDataTypes.cpp
         NewDataTypes.h
-        Array2D.h)
+        Array2D.h
+        Intercoms.cpp
+        Intercoms.h
+)

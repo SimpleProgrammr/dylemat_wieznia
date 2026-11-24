@@ -31,11 +31,11 @@ NewDataTypes::NeuralNetwork::NeuralNetwork(const int input_nodes_count, const in
     in2hidden_weights(nullptr),
     hidden2out_weights(nullptr), output(false) {
     this->input_nodes_count = input_nodes_count;
-    this->input_nodes = vector<int>(this->input_nodes_count);
+    this->input_nodes = std::vector<int>(this->input_nodes_count);
 
 
     this->hidden_nodes_count = hidden_nodes_count;
-    this->hidden_nodes = vector<int>(this->hidden_nodes_count);
+    this->hidden_nodes = std::vector<int>(this->hidden_nodes_count);
 
 }
 

@@ -1,16 +1,20 @@
 #include <iostream>
+#include <random>
+#include <algorithm>
+#include <semaphore.h>
+#include <unistd.h>
 
 #include "Array2D.h"
 #include "Generators.h"
 
 using namespace std;
 
-int PRISONERS_LIMIT;
-int GENERATIONS_LIMIT;
-int JUDGES_LIMIT;
+static int PRISONERS_LIMIT;
+static int GENERATIONS_LIMIT;
+static int JUDGES_LIMIT;
 
 
-void setup_interface() {
+static void setup_interface() {
 
     cout << "Hi, this is training facility for prisoners.\nWe train them to solve prisoners dilemma.\nSquid Game style :)\n\n ";
 
@@ -76,9 +80,8 @@ void setup_interface() {
     }
 }
 
-int main() {
-    setup_interface();
 
+int main() {
 
 
 }

@@ -25,12 +25,12 @@ class NewDataTypes {
 
     struct NeuralNetwork{
         int input_nodes_count;
-        vector<int> input_nodes;
+        std::vector<int> input_nodes;
 
         Weights *in2hidden_weights;
 
         int hidden_nodes_count;
-        vector<int> hidden_nodes;
+        std::vector<int> hidden_nodes;
 
         Weights *hidden2out_weights;
 
