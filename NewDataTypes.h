@@ -2,9 +2,9 @@
 
 class NewDataTypes {
     public:
+    
+    struct Weights{
 
-    template <typename T>
-    struct Array2D{
     private:
         std::unique_ptr<T> data;
     public:
