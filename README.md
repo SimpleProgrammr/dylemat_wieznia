@@ -10,7 +10,7 @@ Wartościami przyjmowanymi z konsoli są:
  - int JUDGES_LIMIT; <- Maksymalna ilość równoległych gier ( każda posiada 2 więźniów )
 
 Wartości przyjmowane z plików to:
- - Tabela wypłat w pliku [payout_table.txt](payout_table.txt) w formacie jak pokazano poniżej. 'C' Oznacza, że dany gracz współpracował (ang. Cooperate), 
+ - Tabela wypłat w pliku [payout_table.txt](config/payout_table.txt) w formacie jak pokazano poniżej. 'C' Oznacza, że dany gracz współpracował (ang. Cooperate), 
 a 'D' że zdradził (ang. Defect). Na miejsce liter trzeba wstawić wartości numeryczne odpowiadające ilości punktów otrzymanych przez danego gracza w danym scenariuszu. Muszą być rozdzielone średnikiem.
 ```txt
 C;C
