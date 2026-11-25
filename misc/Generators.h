@@ -5,7 +5,7 @@
 #pragma once
 #include <random>
 
-#include "Array2D.h"
+#include "./Array2D.h"
 
 
 class Generators {

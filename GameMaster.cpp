@@ -4,8 +4,8 @@
 #include <semaphore.h>
 #include <unistd.h>
 
-#include "Array2D.h"
-#include "Generators.h"
+#include "misc/Array2D.h"
+#include "./misc/Generators.h"
 
 using namespace std;
 
