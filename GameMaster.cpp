@@ -1,18 +1,22 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <signal.h>
+#include <fstream>
 #include <semaphore.h>
 #include <unistd.h>
 
 #include "misc/Array2D.h"
-#include "./misc/Generators.h"
+#include "misc/Generators.h"
+#include "misc/SignalHandlers.h"
 
 using namespace std;
 
 static int PRISONERS_LIMIT;
 static int GENERATIONS_LIMIT;
 static int JUDGES_LIMIT;
-
+static int SEM_TIMEOUT;
+static std::pair<int,int> PAYOUT_TABLE[4];
 
 static void setup_interface() {
 
@@ -80,8 +84,25 @@ static void setup_interface() {
     }
 }
 
+static void read_payout_table() {
+    std::ifstream file("./config/payout_table.txt");
+
+    cout << "f";
+    if (!file.is_open()) {
+        cout << "r";
+        raise(SIGQUIT);
+    }
+}
+
+static void set_errors_handlers() {
+    SignalHandlers::setup(SIGQUIT, sigquit_handler);
+    cout << "-";
+}
 
 int main() {
-
-
+    cout << "s";
+    set_errors_handlers();
+    cout << "r";
+    read_payout_table();
+    cout << "e";
 }

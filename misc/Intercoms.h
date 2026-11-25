@@ -9,8 +9,7 @@
 #include <map>
 #include <utility>
 #include <sys/fcntl.h>
-#include <sys/semaphore.h>
-#include <sys/_types/_s_ifmt.h>
+#include <semaphore.h>
 
 class Intercoms {
 
